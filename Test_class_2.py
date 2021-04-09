@@ -1,14 +1,8 @@
-class test_class_2():
+class test():
 
-    def public(self):
-        print(" this method will be prompted when using the dot operator")
+    def __init__(self):
+        self.A = 1
 
-    def _private(self):
-        print(" this method will not be prompted when using the dot operator")
-
-if __name__ == "__main__":
-    ts = test_class_2()
-
-    ts.public()
-
-    ts._private()
+if __name__=="__main__":
+    t=test()
+    print(t.A)
