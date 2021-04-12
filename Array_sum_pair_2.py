@@ -18,22 +18,20 @@ class Array_sum_pair_2():
     def __len__(self):
         return len(self.array)
 
-    def display(self):
-        return print(self.target_pairs)
-
-    def ArraySumPairFinder(self):
+    def ArraySumPairFinder(self) -> object:
         #edge case test
         if self.__len__() < 2:
             print(" Not enough elements to evaluate")
-            return False
+            return
 
         #Driving logic
         for element in self.lst:
             pair_element = self.result - element #store the result - (element in list)
             if pair_element not in self.lst: #check if the  exists in the list
                 self.seen.add(element) #adding to the seen set
-            elif pair_element in self.lst and element not in self.seen:
-                self.target_pairs.add(element)
+            elif pair_element in self.lst and pair_element not in self.validation_set:
+                self.target_pairs.add((element,pair_element))
+                self.validation_set.add(element)
         return self.target_pairs
 
 
@@ -42,5 +40,6 @@ if __name__ == "__main__":
     #a = [[1,2,3,4], 7]
     #a = [[0], 14]
     d = Array_sum_pair_2(a)
-
+    k = d.ArraySumPairFinder()
+    print(k)
 
