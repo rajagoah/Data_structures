@@ -14,7 +14,7 @@ class Contiguous_sum():
                 if (None in self.arr) or (self.sum_now > self.arr[0]):
                     self.ending_slice = self.a[k:].index(l) #calculating the ending index required to generate the sub-arry resulting in largest contiguos sum
                     self.result_array = self.a[k:] #storing the slice in another variable
-                    self.result_array = self.result_array[:self.ending_slice + 1] #producing the array that results in largest contiguos sum
+                    self.result_array = self.result_array[:self.ending_slice + 1] #producing the array that results in largest contiguos sum. +1 needed because the ending slice is not inclusive
                     self.arr[0] = self.sum_now #replacing the value at index=0 in arr[]
         return self.arr[0], self.result_array
 
