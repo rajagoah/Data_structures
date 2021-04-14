@@ -9,6 +9,7 @@ class Contiguous_sum():
 
     def contiguous_sum_array_finder(self):
         for k in range(len(self.a)): #first iterator to store the value in the array, while adding to remaining values in the array from that point on
+            self.sum_now = 0 #reseting this variable to 0  when k increments
             for l in self.a[k:]: #second iterator that will iterate from the point that 'k' is on
                 self.sum_now = l + self.sum_now #storing cumulative sums
                 if (None in self.arr) or (self.sum_now > self.arr[0]):
@@ -20,5 +21,7 @@ class Contiguous_sum():
 
 if __name__ == "__main__":
     a = [-2,1,-3,4,-1,2,1,-5,4]
+    #a = [1,2,3]
     d = Contiguous_sum(a).contiguous_sum_array_finder()
-    print(d)
+    print(f"{d[0]} is the largest sum".format(d[0]))
+    print(f"{d[1]} is the contiguous array resulting in the largest sum".format(d[1]))
