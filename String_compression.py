@@ -1,3 +1,11 @@
+"""
+1. parse through the input array and then count the occurrences of letters
+2. Append the letters with counter value
+3. After parsing through the input string, parse through the elements in the dictionary
+4. combine the key+value to get the output like A3 or b2.
+5. Append this value to a list
+6. Finally convert the list to a string and return to the calling object
+"""
 class String_Compression():
 
     def __init__(self, array):
