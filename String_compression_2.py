@@ -26,24 +26,28 @@ class String_compression():
 
         #edge case 2
         if len(self.strng) == 1:
-            return self.lst[0]+1
+            return self.lst[0] + str(1)
 
         #driver logic
-        i =1
-        while i <= len(self.lst):
+        i = 0
+        while i < len(self.lst):
 
-            if i < len(self.lst) and self.lst[i] == self.lst[i-1]:
-                i += 1
+            if self.lst[i] == self.lst[i-1]:
                 self.counter += 1
-                self.target_str = self.lst[i]+ str(self.counter)
-            else:
+                #self.target_str = self.lst[i]+ str(self.counter)
+                self.lst[i] = self.lst[i]+ str(self.counter)
                 i += 1
-                self.target_str = self.lst[i]+ str(self.counter)
+            else:
+                #self.target_str = self.lst[i]+ str(self.counter)
+                self.lst[i] = self.lst[i]+ str(self.counter)
                 self.counter = 1
-        return self.target_str
+                i += 1
+        return ''.join(self.lst)
 
 if __name__ == "__main__":
-    a = 'aabbcc'
+    #a = 'aabbcc'
+    #a = 'ab'
+    a = 'a'
 
     d = String_compression(a).compressor()
     print(d)
