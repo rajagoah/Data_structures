@@ -10,44 +10,45 @@ a cleaner and efficient way to compress strings
 class String_compression():
 
     def __init__(self, input):
-        self.strng = input
-        self.lst = list()
+        self.input = input
         self.counter = 1
-        self.target_str = None
+        self.target_str = ''
+
+    def __len__(self):
+        return len(self.input)
 
     def compressor(self):
+
+        #storing the leng in a variable
+        leng = self.__len__()
+
         #storing in list
-        self.lst = list(self.strng)
-        print(self.lst)
+        print(self.input)
 
         #edge case 1
-        if len(self.strng) == 0:
+        if leng == 0:
             return 0
 
         #edge case 2
-        if len(self.strng) == 1:
-            return self.lst[0] + str(1)
+        if leng == 1:
+            return self.input[0] + str(1)
 
         #driver logic
-        i = 0
-        while i < len(self.lst):
+        i = 1
+        while i < leng:
 
-            if self.lst[i] == self.lst[i-1]:
+            if self.input[i] == self.input[i-1]:
                 self.counter += 1
-                #self.target_str = self.lst[i]+ str(self.counter)
-                self.lst[i] = self.lst[i]+ str(self.counter)
-                i += 1
             else:
-                #self.target_str = self.lst[i]+ str(self.counter)
-                self.lst[i] = self.lst[i]+ str(self.counter)
+                self.target_str = self.target_str + self.input[i-1] + str(self.counter)
                 self.counter = 1
-                i += 1
-        return ''.join(self.lst)
+            i += 1
+        self.target_str = self.target_str + self.input[i - 1] + str(self.counter)
+        return self.target_str
 
 if __name__ == "__main__":
-    #a = 'aabbcc'
-    #a = 'ab'
-    a = 'a'
+    #a = 'AABbcC' this passed correctly
+    a = 'AAAaa'
 
     d = String_compression(a).compressor()
     print(d)

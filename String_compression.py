@@ -5,6 +5,8 @@
 4. combine the key+value to get the output like A3 or b2.
 5. Append this value to a list
 6. Finally convert the list to a string and return to the calling object
+7. This code doesn't handle the input such as 'AaBBaB' which should output A1a1B2a1B1. The output per the below code
+will be A1a2B3 which is incorrect
 """
 class String_Compression():
 
@@ -26,7 +28,7 @@ class String_Compression():
         return ''.join(self.strng) #use the join operation to convert the list to strings
 
 if __name__ == "__main__":
-    a = 'AsSAAdytza'
+    a = 'AaBbbbB'
     d = String_Compression(a).compressor()
     print(d)
 
