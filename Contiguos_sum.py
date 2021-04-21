@@ -8,7 +8,16 @@ class Contiguous_sum():
         self.arr = [None] #to store the values in the contiguous sum
 
     def contiguous_sum_array_finder(self):
+        # edge case 1
+        if len(self.a) == 0:
+            return 0
+
+        # edge case 2
+        if len(self.a) == 1:
+            return self.a[0]
+
         for k in range(len(self.a)): #first iterator to store the value in the array, while adding to remaining values in the array from that point on
+            self.sum_now = 0
             for l in self.a[k:]: #second iterator that will iterate from the point that 'k' is on
                 self.sum_now = l + self.sum_now #storing cumulative sums
                 if (None in self.arr) or (self.sum_now > self.arr[0]):
@@ -19,6 +28,7 @@ class Contiguous_sum():
         return self.arr[0], self.result_array
 
 if __name__ == "__main__":
-    a = [-2,1,-3,4,-1,2,1,-5,4]
+    #a = [-2,1,-3,4,-1,2,1,-5,4]
+    a = [1, 2, -1, 3, 4, 10, 10, -10, -1]
     d = Contiguous_sum(a).contiguous_sum_array_finder()
     print(d)
